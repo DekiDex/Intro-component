@@ -1,16 +1,16 @@
-// inputs
-let firstName = document.getElementById('first-name')
-let lastName = document.getElementById('last-name')
-let email = document.getElementById('email')
-let password = document.getElementById('pass')
+
+let firstName = document.getElementById('first-name');
+let lastName = document.getElementById('last-name');
+let email = document.getElementById('email');
+let password = document.getElementById('pass');
 
 // button
-let btn = document.getElementById('btn')
+let btn = document.getElementById('btn');
 
 // error messages and containers
-let errorMessageList = document.querySelectorAll('.error')
-let errorIcons = document.querySelectorAll('.err-icon')
-let errorContainers = document.querySelectorAll('.input-container')
+let errorMessageList = document.querySelectorAll('.error');
+let errorIcons = document.querySelectorAll('.err-icon');
+let errorContainers = document.querySelectorAll('.input-container');
 
 btn.addEventListener('click', () => {
 
