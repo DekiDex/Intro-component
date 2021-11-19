@@ -12,7 +12,9 @@ let errorMessageList = document.querySelectorAll('.error');
 let errorIcons = document.querySelectorAll('.err-icon');
 let errorContainers = document.querySelectorAll('.input-container');
 
-btn.addEventListener('click', () => {
+btn.addEventListener('click', (e) => {
+
+    e.preventDefault()
 
     const regex_email = /\S+@\S+\.\S+/;
 

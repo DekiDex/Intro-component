@@ -29,13 +29,14 @@ a {
 }
 
 .error {
-	visibility: hidden;
+	display: none;
 	color: hsl(0, 100%, 74%);
 }
 
 .err-icon {
-	visibility: hidden;
+	display: none;
 	color: hsl(0, 100%, 74%);
+    position: absolute;
 }
 
 button {
