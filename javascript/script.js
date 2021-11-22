@@ -1,61 +1,49 @@
+const firstName = document.querySelector('input[name="firstname"]');
+const lastName = document.querySelector('input[name="lastname"]');
+const emailInput = document.querySelector('input[name="email"]');
+const password = document.querySelector('input[name="password"]');
+const button = document.querySelector('button');
 
-let firstName = document.getElementById('first-name');
-let lastName = document.getElementById('last-name');
-let email = document.getElementById('email');
-let password = document.getElementById('pass');
+const isValidEmail = (email) => {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+};
 
-// button
-let btn = document.getElementById('btn');
+firstName.isValid = () => !!firstName.value;
+lastName.isValid = () => !!lastName.value;
+password.isValid = () => !!password.value;
+emailInput.isValid = () => isValidEmail(emailInput.value);
 
-// error messages and containers
-let errorMessageList = document.querySelectorAll('.error');
-let errorIcons = document.querySelectorAll('.err-icon');
-let errorContainers = document.querySelectorAll('.input-container');
 
-btn.addEventListener('click', (e) => {
 
-    e.preventDefault()
+const inputFields = [firstName, lastName, emailInput, password];
 
-    const regex_email = /\S+@\S+\.\S+/;
+let shouldValidate = false;
+let isFormValid = false;
 
-    if ( firstName.value.length == 0 ){
-        errorMessageList[0].style.display = 'block'
-        errorIcons[0].style.display = 'block'
-        errorContainers[0].style.border = '2px solid red'
-    } else{
-        errorMessageList[0].style.display = 'none'
-        errorIcons[0].style.display = 'none'
-        errorContainers[0].style.border = '2px solid lightgrey'
+const validateInputs = () => {
+  console.log("we are here");
+  if (!shouldValidate) return;
+
+  isFormValid = true;
+  inputFields.forEach((input) => {
+    input.classList.remove("invalid");
+    input.placeholder = '';
+    emailInput.placeholder = 'email@example/com, "style", "color: red;"';
+    input.nextElementSibling.classList.add("hidden");
+
+    if (!input.isValid()) {
+      input.classList.add("invalid");
+      isFormValid = false;
+      input.nextElementSibling.classList.remove("hidden");
     }
+  });
+};
 
-    if ( lastName.value.length == 0 ){
-        errorMessageList[1].style.display = 'block'
-        errorIcons[1].style.display = 'block'
-        errorContainers[1].style.border = '2px solid red'
-    } else{
-        errorMessageList[1].style.display = 'none'
-        errorIcons[1].style.display = 'none'
-        errorContainers[1].style.border = '2px solid lightgrey'
-    }
-
-    if ( email.value.length == 0 || regex_email.test(email.value) == false){
-        errorMessageList[2].style.display = 'block'
-        errorIcons[2].style.display = 'block'
-        errorContainers[2].style.border = '2px solid red'
-    } else{
-        errorMessageList[2].style.display = 'none'
-        errorIcons[2].style.display = 'none'
-        errorContainers[2].style.border = '2px solid lightgrey'
-    }
-
-    if ( password.value.length == 0 ){
-        errorMessageList[3].style.display = 'block'
-        errorIcons[3].style.display = 'block'
-        errorContainers[3].style.border = '2px solid red'
-    } else{
-        errorMessageList[3].style.display = 'none'
-        errorIcons[3].style.display = 'none'
-        errorContainers[3].style.border = '2px solid lightgrey'
-    }
-
-})
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  shouldValidate = true;
+  validateInputs();
+  if (isFormValid) {
+  }
+});

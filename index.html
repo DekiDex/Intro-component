@@ -21,27 +21,30 @@
 		<a href=""><span class="light">Try it free 7 days</span> then $20/mo. thereafter</a>
         <form class="form" id="form">
         	<div class="input-container">
-        		<input class="first" type="text" name="" placeholder="First Name" id="first-name">
-        		<img class="err-icon" src="icon-error.svg">
-        		<span class="error">First name cannot be empty</span>
+                <label class="firstname"></label>
+        		<input name="firstname" class="" type="text" placeholder="First Name" id="firstname">
+        	    <span class="error hidden" aria-live="polite">First name cannot be empty</span>
         	</div>
 
         	<div class="input-container">
-        		<input id="last-name" type="text" name="lastname" placeholder="Last Name">
-        		<img class="err-icon" src="icon-error.svg">
-        		<span class="error">Last name cannot be empty</span>
+        		<label class="lastname"></label>
+        		<input class="" id="lastname" type="text" name="lastname" placeholder="Last Name">
+        		
+        		<span class="error hidden" aria-live="polite">Last name cannot be empty</span>
         	</div>
 
         	<div class="input-container">
+        		<label class="emailaddress"></label>
         		<input type="email" name="email" placeholder="Email Address" id="email">
-        		<img class="err-icon" src="icon-error.svg">
-        		<span class="error">Looks like this is not an email</span>
+        		
+        		<span class="error hidden" aria-live="polite">Looks like this is not an email</span>
         	</div>
 
         	<div class="input-container">
-        		<input type="password" name="" placeholder="Password" id="pass">
-        		<img class="err-icon" src="icon-error.svg">
-        		<span class="error">Password cannot be empty</span>
+        		<label class="passwordinput"></label>
+        		<input type="password" name="password" placeholder="Password" id="pass">
+        		
+        		<span class="error hidden" aria-live="polite">Password cannot be empty</span>
         	</div>
 
         	<div>
