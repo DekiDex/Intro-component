@@ -29,8 +29,10 @@ const validateInputs = () => {
   inputFields.forEach((input) => {
     input.classList.remove("invalid");
     input.placeholder = '';
-    emailInput.placeholder = 'email@example/com, "style", "color: red;"';
+    emailInput.placeholder = 'email@example/com';
     input.nextElementSibling.classList.add("hidden");
+   
+
 
     if (!input.isValid()) {
       input.classList.add("invalid");
